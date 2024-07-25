@@ -1,0 +1,210 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoAware</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <!-- header section -->
+    <header>
+        <a href="{% url 'home' %}"><img src="{% static 'Images/Logo.png' %}" alt="" width="100"></a>
+        <nav class="navbar">
+            <ul>
+                <li><a href="{% url 'home' %}">home</a></li>
+                <li><a href="#about">about</a></li>
+                <li><a href="#services">services</a></li>
+                <li><a href="#projects">projects</a></li>
+                <li><a href="{% url 'donate' %}">donate</a></li>
+                <li><a href="{% url 'post_list' %}">post</a></li>
+                <li><a href="{% url 'subscribe' %}">subscribe</a></li>
+            </ul>
+        </nav>
+        <div class="fas fa-bars"></div>
+    </header>
+    <!-- home section -->
+    <section class="home" id="home">
+        <div class="content">
+            <h1>save earth save life</h1>
+            <p>Join us on a mission to inspire a culture of environmental responsibility, emphasizing the interconnectedness of all living beings and the importance of safeguarding our fragile ecosystems.</p>
+            <a href="https://drive.google.com/file/d/11QtStQDtdyyUJ4cHmaLZ9AGUK1VTuULN/view?usp=sharing" class="btn">explore more</a>
+        </div>
+    </section>
+    <!-- about section -->
+    <section class="about" id="about">
+        <div class="row">
+            <div class="image">
+                <img src="{% static 'images/About.png' %}" alt="">
+            </div>
+            <div class="content">
+                <h3>together we can save the planet</h3>
+                <p>We have to understand the power of transformative action in addressing environmental challenges.</p>
+                <p>Every individual's contribution, no matter how small, is crucial in the broader mission of sustainability. By collaborating, we can reduce pollution, conserve biodiversity, and promote eco-friendly practices, ensuring a healthier, more sustainable world. Let’s harness our collective strength and commitment to create a lasting impact on our planet’s future.</p>
+                <a href="#services" class="btn">learn more</a>
+            </div>
+        </div>
+        <div class="box-container">
+            <div class="box">
+                <i class="fas fa-users"></i>
+                <h3>100+</h3>
+                <p>volunteers</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-tree"></i>
+                <h3>1100+</h3>
+                <p>trees planted</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-paw"></i>
+                <h3>40+</h3>
+                <p>animals saved</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-donate"></i>
+                <h3>30+</h3>
+                <p>donators</p>
+            </div>
+        </div>
+    </section>
+    <!-- services section -->
+    <section class="services" id="services">
+        <h1 class="heading"> <i class="fas fa-quote-left"></i> our services <i class="fas fa-quote-right"></i></h1>
+        <div class="box-container">
+            <div class="box">
+                <div class="detail">
+                    <i class="fas fa-seedling"></i>
+                    <h3>planting</h3>
+                    <p>We do afforestation as a part of safeguarding our environment. we need to plant more trees for a greener future</p>
+                    <a href="#">read more..</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="detail">
+                    <i class="fas fa-recycle"></i>
+                    <h3>recycle</h3>
+                    <p>Our target is to keep the environment safe by advocating for recycling</p>
+                    <a href="#">read more..</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="detail">
+                    <i class="fas fa-hand-holding-water"></i>
+                    <h3>water saving</h3>
+                    <p>Water is life and we provide save water for drinking</p>
+                    <a href="#">read more..</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="detail">
+                    <i class="fas fa-tree"></i>
+                    <h3>tree saving</h3>
+                    <p>Restoring our nature by protecting trees in any possibility we can</p>
+                    <a href="#">read more..</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="detail">
+                    <i class="fas fa-paw"></i>
+                    <h3>animals saving</h3>
+                    <p>We have saved over 40 animals for the last six months and we hope to reduce poaching comes next year</p>
+                    <a href="#">read more..</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="detail">
+                    <i class="fas fa-solar-panel"></i>
+                    <h3>solar panel</h3>
+                    <p>Solar panels are a sustainable energy source that help reduce our reliance on fossil fuels. They harness sunlight to generate electricity, contributing to a cleaner environment. Adopting solar energy can significantly lower greenhouse gas emissions and promote energy independence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- project section -->
+    <section class="projects" id="projects">
+        <h1 class="heading"> <i class="fas fa-quote-left"></i> our projects <i class="fas fa-quote-right"></i></h1>
+        <div class="box-container">
+            <div class="thumbnail">
+                <img src="{% static 'images/project.saving.jpg' %}" alt="">
+                <div class="icons">
+                    <a href="#" style="--i:1" class="fas fa-heart"></a>
+                    <a href="#" style="--i:2" class="fas fa-share"></a>
+                    <a href="#" style="--i:3" class="fas fa-comment"></a>
+                </div>
+            </div>
+            <div class="thumbnail">
+                <img src="{% static 'images/project.jpg' %}" alt="">
+                <div class="icons">
+                    <a href="#" style="--i:1" class="fas fa-heart"></a>
+                    <a href="#" style="--i:2" class="fas fa-share"></a>
+                    <a href="#" style="--i:3" class="fas fa-comment"></a>
+                </div>
+            </div>
+            <div class="thumbnail">
+                <img src="{% static 'images/project0.jpeg' %}" alt="">
+                <div class="icons">
+                    <a href="#" style="--i:1" class="fas fa-heart"></a>
+                    <a href="#" style="--i:2" class="fas fa-share"></a>
+                    <a href="#" style="--i:3" class="fas fa-comment"></a>
+                </div>
+            </div>
+            <div class="thumbnail">
+                <img src="{% static 'images/project.solar.jpeg' %}" alt="">
+                <div class="icons">
+                    <a href="#" style="--i:1" class="fas fa-heart"></a>
+                    <a href="#" style="--i:2" class="fas fa-share"></a>
+                    <a href="#" style="--i:3" class="fas fa-comment"></a>
+                </div>
+            </div>
+            <div class="thumbnail">
+                <img src="{% static 'images/project1.jpg' %}" alt="">
+                <div class="icons">
+                    <a href="#" style="--i:1" class="fas fa-heart"></a>
+                    <a href="#" style="--i:2" class="fas fa-share"></a>
+                    <a href="#" style="--i:3" class="fas fa-comment"></a>
+                </div>
+            </div>
+            <div class="thumbnail">
+                <img src="{% static 'images/project2.jpg' %}" alt="">
+                <div class="icons">
+                    <a href="#" style="--i:1" class="fas fa-heart"></a>
+                    <a href="#" style="--i:2" class="fas fa-share"></a>
+                    <a href="#" style="--i:3" class="fas fa-comment"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+     <!-- footer section -->
+     <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <p>At EcoAware, we believe in the power of collective action to protect and preserve our planet. Our initiatives focus on sustainable practices, environmental education, and community engagement to create a greener, healthier world. Join us in our mission to inspire environmental responsibility and make a lasting impact on our fragile ecosystems.</p>
+    
+            </div>
+            <div class="box">
+                <h3 class="share">share</h3>
+                <a href="">facebook</a>
+                <a href="">twitter</a>
+                <a href="">what's app</a>
+                <a href="">instagram</a>
+            </div>
+            <section class="subscribe" id="subscribe">
+                <h1 class="heading"> <i class="fas fa-quote-left"></i> subscribe to our newsletter <i class="fas fa-quote-right"></i></h1>
+                <div class="form-container">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.email.label_tag }} {{ form.email }}
+                        <input type="submit" class="btn" value="Subscribe">
+                    </form>
+                </div>
+            </section>
+        <h1 class="credit">created by <span>Madol Abraham</span> | all right reserved</h1>
+    </section>
+    <script src="script.js"></script>
+
+</body>
+</html>
+
+

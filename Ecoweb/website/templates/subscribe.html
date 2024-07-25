@@ -1,0 +1,205 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribe - EcoAware</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color:  #34568B
+            
+            
+        }
+
+        header {
+            position: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            padding: 1rem 5rem;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header .navbar ul {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            list-style: none;
+        }
+
+        header .navbar ul li {
+            margin: 0 1rem;
+        }
+
+        header .navbar ul li a {
+            font-size: 1.8rem;
+            color: white;
+            padding: .5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        header .navbar ul li a:hover {
+            background-color: #76a713;
+            color: black;
+        }
+
+        header .fa-bars {
+            font-size: 3rem;
+            color: #333;
+            cursor: pointer;
+            display: none;
+        }
+
+        header img {
+            width: 100px;
+        }
+
+        .subscribe {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 4% 6%;
+            background-image: url('');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .subscribe .heading {
+            text-align: center;
+            font-size: 2rem;
+            color: #fff;
+            padding: 1rem;
+            background: #c9242480;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .subscribe .heading i {
+            color: #76a713;
+            font-size: 1rem;
+        }
+
+        .subscribe .form-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .subscribe .form-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .subscribe .form-container form label {
+            font-size: 1.6rem;
+            color: #333;
+            margin-bottom: .5rem;
+        }
+
+        .subscribe .form-container form input[type="email"] {
+            height: 4rem;
+            width: 100%;
+            background-color:white;
+            color: #333;
+            padding: 0 1rem;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            outline: none;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .subscribe .form-container form .btn {
+            height: 2rem;
+            width: 100%;
+            background-color: #76a713;
+            color: #fff;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .subscribe .form-container form .btn:hover {
+            background-color: #5a8d0a;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 2rem;
+            }
+            header .navbar ul {
+                display: none;
+                flex-direction: column;
+                background: #333;
+                position: absolute;
+                top: 40px;
+                right: 0;
+                width: 100%;
+                text-align: center;
+            }
+            header .navbar ul li {
+                margin: 10px 0;
+            }
+            header .fa-bars {
+                display: block;
+            }
+            header .navbar.active ul {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- header section -->
+    <header>
+        
+        
+        <nav class="navbar">
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'donate' %}">Donate</a></li>
+                <li><a href="{% url 'post_list' %}">Post</a></li>
+                <li><a href="{% url 'subscribe' %}">Subscribe</a></li>
+            </ul>
+        </nav>
+        <div class="fas fa-bars" id="menu-toggle"></div>
+    </header>
+    <!-- subscribe section -->
+    <section class="subscribe" id="subscribe">
+        <h1 class="heading"> <i class="fas fa-quote-left"></i> subscribe to our newsletter <i class="fas fa-quote-right"></i></h1>
+        <div class="form-container">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.email.label_tag }} {{ form.email }}
+                <input type="submit" class="btn" value="Subscribe">
+            </form>
+        </div>
+    </section>
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.querySelector('.navbar').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

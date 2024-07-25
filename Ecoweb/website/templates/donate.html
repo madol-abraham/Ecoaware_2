@@ -1,0 +1,161 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate - EcoAware</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #333;
+            padding: 10px 20px;
+            color: #fff;
+        }
+        header img {
+            width: 100px;
+        }
+        header .navbar ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        header .navbar ul li {
+            margin: 0 10px;
+        }
+        header .navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        header .fas.fa-bars {
+            display: none;
+        }
+        .donate {
+            padding: 50px 20px;
+            text-align: center;
+            background: #F5FFFA;
+        }
+        .donate .heading {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .form-container form .inputBox {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .form-container form .inputBox label {
+            flex-basis: 30%;
+            text-align: left;
+        }
+        .form-container form .inputBox input {
+            flex-basis: 65%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-container form input[type="submit"] {
+            background: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .form-container form input[type="submit"]:hover {
+            background: #218838;
+        }
+        @media (max-width: 768px) {
+            header .navbar ul {
+                display: none;
+                flex-direction: column;
+                background: #333;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 100%;
+                text-align: center;
+            }
+            header .navbar ul li {
+                margin: 10px 0;
+            }
+            header .fas.fa-bars {
+                display: block;
+                cursor: pointer;
+            }
+            header .navbar.active ul {
+                display: flex;
+            }
+            .form-container form .inputBox {
+                flex-direction: column;
+            }
+            .form-container form .inputBox label,
+            .form-container form .inputBox input {
+                flex-basis: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- header section -->
+    <header>
+        
+        <nav class="navbar">
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'donate' %}">Donate</a></li>
+                <li><a href="{% url 'post_list' %}">Post</a></li>
+                <li><a href="{% url 'subscribe' %}">Subscribe</a></li>
+            </ul>
+        </nav>
+        <div class="fas fa-bars" id="menu-toggle"></div>
+    </header>
+    <!-- donate section -->
+    <section class="donate" id="donate">
+        <h1 class="heading"> <i class="fas fa-quote-left"></i> Donate to Us <i class="fas fa-quote-right"></i></h1>
+        <div class="form-container">
+            <form method="post">
+                {% csrf_token %}
+                <div class="inputBox">
+                    {{ form.first_name.label_tag }} {{ form.first_name }}
+                </div>
+                <div class="inputBox">
+                    {{ form.last_name.label_tag }} {{ form.last_name }}
+                </div>
+                <div class="inputBox">
+                    {{ form.email.label_tag }} {{ form.email }}
+                </div>
+                <div class="inputBox">
+                    {{ form.amount.label_tag }} {{ form.amount }}
+                </div>
+                {{ form.message.label_tag }} {{ form.message }}
+                <input type="submit" class="btn" value="Donate">
+            </form>
+        </div>
+    </section>
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.querySelector('.navbar').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

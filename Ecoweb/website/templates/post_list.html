@@ -1,0 +1,43 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts - EcoAware</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <!-- header section -->
+    <header>
+        <a href="{% url 'home' %}"><img src="{% static 'Images/Logo.png' %}" alt="" width="100"></a>
+        <nav class="navbar">
+            <ul>
+                <li><a href="{% url 'home' %}">home</a></li>
+                <li><a href="{% url 'donate' %}">donate</a></li>
+                <li><a href="{% url 'post_list' %}">post</a></li>
+                <li><a href="{% url 'subscribe' %}">subscribe</a></li>
+            </ul>
+        </nav>
+        <div class="fas fa-bars"></div>
+    </header>
+    <!-- post section -->
+    <section class="post" id="post">
+        <h1 class="heading"> <i class="fas fa-quote-left"></i> our latest post <i class="fas fa-quote-right"></i></h1>
+        <div class="box-container">
+            {% for post in posts %}
+            <div class="box">
+                <img src="{{ post.image.url }}" alt="">
+                <div class="content">
+                    <span><i class="fas fa-calendar"></i> {{ post.date_posted|date:"F d, Y" }}</span>
+                    <h3>{{ post.title }}</h3>
+                    <p>{{ post.content|truncatewords:30 }}</p>
+                    
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</body>
+</html>

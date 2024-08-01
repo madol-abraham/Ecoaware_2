@@ -65,8 +65,8 @@ ROOT_URLCONF = 'Ecoweb.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
-#       'DIRS': ['templates'],
+#         'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

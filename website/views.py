@@ -3,7 +3,7 @@ from .forms import DonationForm, NewsletterSubscriptionForm
 from .models import Post
 
 def home(request):
-    return render(request, 'website/index.html')
+    return render(request, 'index.html')
 
 def donate(request):
     if request.method == 'POST':
